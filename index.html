@@ -1,109 +1,71 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Plataforma de projetos, doações e voluntariado da ONG Esperança."
-    >
+    <meta name="description"
+          content="ONG Esperança - Transformando vidas através da solidariedade, educação e voluntariado.">
 
-    <title>ONG Esperança</title>
+    <title>ONG Esperança | Início</title>
 
-    <link
-        rel="stylesheet"
-        href="CSS/style.css"
-    >
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 
 <body>
 
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
 
-    <!-- CABEÇALHO -->
+    <header class="cabecalho">
 
-    <header>
+        <div class="container cabecalho-conteudo">
 
-        <div class="header-container">
-
-            <a
-                href="index.html"
-                class="logo"
-            >
+            <a href="index.html"
+               class="logo">
                 ONG Esperança
             </a>
 
-
             <button
                 class="menu-toggle"
-                id="menuToggle"
+                id="menu-toggle"
                 type="button"
                 aria-label="Abrir menu"
                 aria-expanded="false"
-                aria-controls="navMenu"
-            >
+                aria-controls="menu-principal">
+
                 ☰
+
             </button>
 
+            <nav
+                id="menu-principal"
+                class="menu"
+                aria-label="Navegação principal">
 
-            <nav aria-label="Navegação principal">
-
-                <ul
-                    class="nav-menu"
-                    id="navMenu"
-                >
+                <ul>
 
                     <li>
-                        <a href="index.html">
+                        <a
+                            href="index.html"
+                            class="ativo">
                             Início
                         </a>
                     </li>
 
-
-                    <li class="dropdown">
-
-                        <a href="projetos.html">
+                    <li>
+                        <a href="projeto.html">
                             Projetos
                         </a>
-
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a href="#doacoes">
-                                    Doações
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#voluntariado">
-                                    Voluntariado
-                                </a>
-                            </li>
-
-                        </ul>
-
                     </li>
-
 
                     <li>
                         <a href="cadastro.html">
                             Cadastro
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="#contato">
-                            Contato
                         </a>
                     </li>
 
@@ -116,36 +78,54 @@
     </header>
 
 
+    <!-- =========================
+         CONTEÚDO PRINCIPAL
+    ========================== -->
 
     <main>
 
-
-        <!-- APRESENTAÇÃO + IMAGEM -->
+        <!-- HERO -->
 
         <section class="hero">
 
-            <div class="hero-grid">
+            <div class="container hero-conteudo">
 
+                <div class="hero-texto">
 
-                <div class="hero-conteudo">
+                    <span class="badge">
+                        Transformando vidas
+                    </span>
 
                     <h1>
-                        Transformando vidas através
-                        da solidariedade
+                        Juntos podemos construir
+                        um futuro melhor
                     </h1>
 
                     <p>
-                        Conheça nossos projetos sociais,
-                        participe como voluntário e ajude
-                        a transformar nossa comunidade.
+                        A ONG Esperança desenvolve ações
+                        voltadas para educação, solidariedade
+                        e inclusão social.
                     </p>
 
-                    <a
-                        href="#projetos"
-                        class="botao"
-                    >
-                        Conheça nossos projetos
-                    </a>
+                    <div class="hero-botoes">
+
+                        <a
+                            href="cadastro.html"
+                            class="botao">
+
+                            Quero ser voluntário
+
+                        </a>
+
+                        <a
+                            href="projetos.html"
+                            class="botao botao-secundario">
+
+                            Conhecer projetos
+
+                        </a>
+
+                    </div>
 
                 </div>
 
@@ -154,241 +134,94 @@
 
                     <img
                         src="img/imagem.jpg"
-                        alt="Ação social realizada pela ONG"
-                    >
+                        alt="Voluntários participando de uma ação social da ONG Esperança">
 
                 </div>
 
-
             </div>
 
         </section>
 
 
-
-        <!-- PROJETOS -->
-
-        <section
-            class="secao"
-            id="projetos"
-        >
-
-            <div class="container">
-
-                <h2 class="titulo-secao">
-                    Nossos projetos
-                </h2>
-
-
-                <!-- PROJETO 1 -->
-
-                <article class="card">
-
-                    <div class="badges">
-
-                        <span class="badge badge-ativo">
-                            Projeto ativo
-                        </span>
-
-                    </div>
-
-                    <h3>
-                        Arrecadação de alimentos
-                    </h3>
-
-                    <p>
-                        Arrecadamos alimentos para auxiliar
-                        famílias em situação de vulnerabilidade.
-                    </p>
-
-                    <div class="acoes">
-
-                        <a
-                            href="cadastro.html"
-                            class="botao"
-                        >
-                            Quero ajudar
-                        </a>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- PROJETO 2 -->
-
-                <article
-                    class="card"
-                    id="voluntariado"
-                >
-
-                    <div class="badges">
-
-                        <span class="badge badge-voluntario">
-                            Voluntários
-                        </span>
-
-                    </div>
-
-                    <h3>
-                        Programa de voluntariado
-                    </h3>
-
-                    <p>
-                        Participe das ações sociais
-                        e contribua com seu tempo
-                        e suas habilidades.
-                    </p>
-
-                    <div class="acoes">
-
-                        <button
-                            class="botao"
-                            id="abrirModal"
-                            type="button"
-                        >
-                            Quero ser voluntário
-                        </button>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- PROJETO 3 -->
-
-                <article
-                    class="card"
-                    id="doacoes"
-                >
-
-                    <div class="badges">
-
-                        <span class="badge badge-encerrado">
-                            Campanha
-                        </span>
-
-                    </div>
-
-                    <h3>
-                        Campanha de doações
-                    </h3>
-
-                    <p>
-                        As contribuições ajudam
-                        na manutenção dos projetos
-                        e atividades da ONG.
-                    </p>
-
-                    <div class="acoes">
-
-                        <button
-                            class="botao"
-                            id="mostrarToast"
-                            type="button"
-                        >
-                            Demonstrar notificação
-                        </button>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- COMPONENTES DE FEEDBACK -->
+        <!-- SOBRE -->
 
         <section class="secao">
 
             <div class="container">
 
-                <div class="feedback-demo">
+                <div class="titulo-secao">
+
+                    <span class="subtitulo">
+                        Quem somos
+                    </span>
 
                     <h2>
-                        Componentes de Feedback
+                        Sobre a ONG Esperança
                     </h2>
 
+                    <p>
+                        Acreditamos que pequenas ações podem
+                        gerar grandes transformações.
+                    </p>
 
-                    <!-- BADGES -->
-
-                    <div class="badges">
-
-                        <span class="badge badge-ativo">
-                            Projeto ativo
-                        </span>
-
-                        <span class="badge badge-voluntario">
-                            Voluntários
-                        </span>
-
-                        <span class="badge badge-encerrado">
-                            Encerrado
-                        </span>
-
-                    </div>
+                </div>
 
 
-                    <!-- ALERTAS -->
+                <div class="grid-cards">
 
-                    <div
-                        class="alerta alerta-sucesso"
-                        role="status"
-                    >
-                        ✓ Cadastro realizado com sucesso!
-                    </div>
+                    <article class="card">
 
+                        <div class="icone-card">
+                            ♡
+                        </div>
 
-                    <div
-                        class="alerta alerta-erro"
-                        role="alert"
-                    >
-                        ✕ Não foi possível realizar o cadastro.
-                    </div>
+                        <h3>
+                            Nossa missão
+                        </h3>
 
+                        <p>
+                            Promover ações sociais que contribuam
+                            para o desenvolvimento e a qualidade
+                            de vida das comunidades.
+                        </p>
 
-                    <div
-                        class="alerta alerta-aviso"
-                        role="status"
-                    >
-                        ⚠ Verifique os campos antes de continuar.
-                    </div>
+                    </article>
 
 
-                    <div class="acoes-feedback">
+                    <article class="card">
 
-                        <button
-                            class="botao"
-                            id="abrirModalDemo"
-                            type="button"
-                        >
-                            Abrir modal
-                        </button>
+                        <div class="icone-card">
+                            ◉
+                        </div>
 
+                        <h3>
+                            Nossa visão
+                        </h3>
 
-                        <button
-                            class="botao"
-                            id="mostrarToastDemo"
-                            type="button"
-                        >
-                            Mostrar toast
-                        </button>
+                        <p>
+                            Construir uma sociedade mais inclusiva,
+                            solidária e com oportunidades para todos.
+                        </p>
+
+                    </article>
 
 
-                        <button
-                            class="botao"
-                            type="button"
-                            disabled
-                        >
-                            Botão desativado
-                        </button>
+                    <article class="card">
 
-                    </div>
+                        <div class="icone-card">
+                            ★
+                        </div>
+
+                        <h3>
+                            Nossos valores
+                        </h3>
+
+                        <p>
+                            Respeito, solidariedade, responsabilidade,
+                            transparência e compromisso social.
+                        </p>
+
+                    </article>
 
                 </div>
 
@@ -397,23 +230,153 @@
         </section>
 
 
+        <!-- PROJETOS EM DESTAQUE -->
+
+        <section class="secao fundo-claro">
+
+            <div class="container">
+
+                <div class="titulo-secao">
+
+                    <span class="subtitulo">
+                        Nossas ações
+                    </span>
+
+                    <h2>
+                        Projetos em destaque
+                    </h2>
+
+                    <p>
+                        Conheça algumas das iniciativas
+                        desenvolvidas pela ONG.
+                    </p>
+
+                </div>
+
+
+                <div class="grid-cards">
+
+                    <article class="card projeto-card">
+
+                        <span class="badge">
+                            Educação
+                        </span>
+
+                        <h3>
+                            Educação para Todos
+                        </h3>
+
+                        <p>
+                            Reforço escolar e atividades educativas
+                            para crianças e adolescentes.
+                        </p>
+
+                        <a href="projeto.html">
+                            Saiba mais →
+                        </a>
+
+                    </article>
+
+
+                    <article class="card projeto-card">
+
+                        <span class="badge">
+                            Solidariedade
+                        </span>
+
+                        <h3>
+                            Alimento Solidário
+                        </h3>
+
+                        <p>
+                            Arrecadação e distribuição de alimentos
+                            para famílias em vulnerabilidade.
+                        </p>
+
+                        <a href="projeto.html">
+                            Saiba mais →
+                        </a>
+
+                    </article>
+
+
+                    <article class="card projeto-card">
+
+                        <span class="badge">
+                            Voluntariado
+                        </span>
+
+                        <h3>
+                            Rede de Voluntários
+                        </h3>
+
+                        <p>
+                            Pessoas unidas para colaborar em
+                            diferentes ações e projetos sociais.
+                        </p>
+
+                        <a href="cadastro.html">
+                            Participar →
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CHAMADA FINAL -->
+
+        <section class="chamada">
+
+            <div class="container">
+
+                <h2>
+                    Faça parte dessa transformação
+                </h2>
+
+                <p>
+                    Cadastre-se como voluntário e ajude
+                    a transformar vidas.
+                </p>
+
+                <a
+                    href="cadastro.html"
+                    class="botao botao-claro">
+
+                    Participar agora
+
+                </a>
+
+            </div>
+
+        </section>
+
     </main>
 
 
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
 
-    <!-- RODAPÉ -->
+    <footer class="rodape">
 
-    <footer id="contato">
+        <div class="container">
 
-        <div class="footer-container">
+            <h2>
+                ONG Esperança
+            </h2>
 
             <p>
-                © 2026 ONG Esperança
+                Solidariedade que transforma.
             </p>
 
-            <p>
-                Solidariedade, inclusão
-                e transformação social.
+            <p class="copyright">
+                &copy; 2026 ONG Esperança.
+                Todos os direitos reservados.
             </p>
 
         </div>
@@ -421,57 +384,7 @@
     </footer>
 
 
-
-    <!-- MODAL -->
-
-    <div
-        class="modal"
-        id="modal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="tituloModal"
-    >
-
-        <div class="modal-conteudo">
-
-            <h2 id="tituloModal">
-                Inscrição realizada!
-            </h2>
-
-            <p>
-                Obrigado pelo interesse
-                em participar dos projetos
-                da nossa ONG.
-            </p>
-
-            <button
-                class="botao"
-                id="fecharModal"
-                type="button"
-            >
-                Fechar
-            </button>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- TOAST -->
-
-    <div
-        class="toast"
-        id="toast"
-        role="status"
-        aria-live="polite"
-    >
-        ✓ Informações salvas com sucesso!
-    </div>
-
-
-    <script src="JS/script.js"></script>
-
+    <script src="js/script.js"></script>
 
 </body>
 

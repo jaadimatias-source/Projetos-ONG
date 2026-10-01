@@ -1,28 +1,398 @@
-/* ==========================================
-   MENU HAMBÚRGUER
-   ========================================== */
-
-const menuToggle =
-    document.getElementById("menuToggle");
-
-const navMenu =
-    document.getElementById("navMenu");
+// ==========================================
+// ONG ESPERANÇA
+// JAVASCRIPT PRINCIPAL
+// ==========================================
 
 
-if (menuToggle && navMenu) {
+// ==========================================
+// 1. MENU RESPONSIVO
+// ==========================================
 
-    menuToggle.addEventListener(
+const botaoMenu =
+    document.getElementById("menu-toggle");
+
+const menu =
+    document.getElementById("menu-principal");
+
+
+if (botaoMenu && menu) {
+
+    botaoMenu.addEventListener(
         "click",
         function () {
 
-            navMenu.classList.toggle("ativo");
+            menu.classList.toggle("aberto");
 
-            const menuAberto =
-                navMenu.classList.contains("ativo");
 
-            menuToggle.setAttribute(
+            const estaAberto =
+                menu.classList.contains("aberto");
+
+
+            botaoMenu.setAttribute(
                 "aria-expanded",
-                menuAberto
+                estaAberto
+            );
+
+
+            if (estaAberto) {
+
+                botaoMenu.setAttribute(
+                    "aria-label",
+                    "Fechar menu"
+                );
+
+            } else {
+
+                botaoMenu.setAttribute(
+                    "aria-label",
+                    "Abrir menu"
+                );
+
+            }
+
+        }
+    );
+
+
+    // Fecha o menu ao clicar em um link
+
+    const linksMenu =
+        menu.querySelectorAll("a");
+
+
+    linksMenu.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                menu.classList.remove("aberto");
+
+                botaoMenu.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                botaoMenu.setAttribute(
+                    "aria-label",
+                    "Abrir menu"
+                );
+
+            }
+        );
+
+    });
+
+}
+
+
+
+// ==========================================
+// 2. FORMULÁRIO
+// ==========================================
+
+const formulario =
+    document.getElementById("form-cadastro");
+
+const toast =
+    document.getElementById("toast");
+
+
+if (formulario) {
+
+    formulario.addEventListener(
+        "submit",
+        function (evento) {
+
+            // Impede o recarregamento da página
+
+            evento.preventDefault();
+
+
+            // Verifica as validações HTML
+
+            if (!formulario.checkValidity()) {
+
+                formulario.reportValidity();
+
+                return;
+
+            }
+
+
+            // Mostra mensagem
+
+            mostrarToast(
+                "Cadastro realizado com sucesso!"
+            );
+
+
+            // Limpa o formulário
+
+            formulario.reset();
+
+        }
+    );
+
+}
+
+
+
+// ==========================================
+// 3. FUNÇÃO DO TOAST
+// ==========================================
+
+function mostrarToast(mensagem) {
+
+    if (!toast) {
+
+        return;
+
+    }
+
+
+    toast.textContent = mensagem;
+
+    toast.classList.add("mostrar");
+
+
+    setTimeout(
+        function () {
+
+            toast.classList.remove("mostrar");
+
+        },
+        3000
+    );
+
+}
+
+
+
+// ==========================================
+// 4. MÁSCARA DE CPF
+// ==========================================
+
+const campoCpf =
+    document.getElementById("cpf");
+
+
+if (campoCpf) {
+
+    campoCpf.addEventListener(
+        "input",
+        function () {
+
+            let valor =
+                campoCpf.value.replace(
+                    /\D/g,
+                    ""
+                );
+
+
+            // Limita em 11 números
+
+            valor =
+                valor.substring(0, 11);
+
+
+            // 000.000.000-00
+
+            valor =
+                valor.replace(
+                    /(\d{3})(\d)/,
+                    "$1.$2"
+                );
+
+
+            valor =
+                valor.replace(
+                    /(\d{3})(\d)/,
+                    "$1.$2"
+                );
+
+
+            valor =
+                valor.replace(
+                    /(\d{3})(\d{1,2})$/,
+                    "$1-$2"
+                );
+
+
+            campoCpf.value = valor;
+
+        }
+    );
+
+}
+
+
+
+// ==========================================
+// 5. MÁSCARA DE TELEFONE
+// ==========================================
+
+const campoTelefone =
+    document.getElementById("telefone");
+
+
+if (campoTelefone) {
+
+    campoTelefone.addEventListener(
+        "input",
+        function () {
+
+            let valor =
+                campoTelefone.value.replace(
+                    /\D/g,
+                    ""
+                );
+
+
+            valor =
+                valor.substring(0, 11);
+
+
+            valor =
+                valor.replace(
+                    /^(\d{2})(\d)/,
+                    "($1) $2"
+                );
+
+
+            valor =
+                valor.replace(
+                    /(\d{5})(\d)/,
+                    "$1-$2"
+                );
+
+
+            campoTelefone.value =
+                valor;
+
+        }
+    );
+
+}
+
+
+
+// ==========================================
+// 6. MÁSCARA DE CEP
+// ==========================================
+
+const campoCep =
+    document.getElementById("cep");
+
+
+if (campoCep) {
+
+    campoCep.addEventListener(
+        "input",
+        function () {
+
+            let valor =
+                campoCep.value.replace(
+                    /\D/g,
+                    ""
+                );
+
+
+            valor =
+                valor.substring(0, 8);
+
+
+            valor =
+                valor.replace(
+                    /^(\d{5})(\d)/,
+                    "$1-$2"
+                );
+
+
+            campoCep.value = valor;
+
+        }
+    );
+
+}
+
+
+
+// ==========================================
+// 7. MODAL DOS PROJETOS
+// ==========================================
+
+const modal =
+    document.getElementById("modal");
+
+const fecharModal =
+    document.getElementById("fechar-modal");
+
+const tituloModal =
+    document.getElementById("modal-titulo");
+
+const textoModal =
+    document.getElementById("modal-texto");
+
+const botoesModal =
+    document.querySelectorAll(".botao-modal");
+
+
+// Guarda o botão que abriu o modal
+// para devolver o foco depois.
+
+let ultimoElementoFocado = null;
+
+
+if (modal) {
+
+    botoesModal.forEach(
+        function (botao) {
+
+            botao.addEventListener(
+                "click",
+                function () {
+
+                    ultimoElementoFocado =
+                        botao;
+
+
+                    const titulo =
+                        botao.getAttribute(
+                            "data-titulo"
+                        );
+
+
+                    const texto =
+                        botao.getAttribute(
+                            "data-texto"
+                        );
+
+
+                    tituloModal.textContent =
+                        titulo;
+
+
+                    textoModal.textContent =
+                        texto;
+
+
+                    modal.classList.add(
+                        "aberto"
+                    );
+
+
+                    modal.setAttribute(
+                        "aria-hidden",
+                        "false"
+                    );
+
+
+                    // Coloca o foco no botão fechar
+
+                    fecharModal.focus();
+
+                }
             );
 
         }
@@ -32,74 +402,61 @@ if (menuToggle && navMenu) {
 
 
 
-/* ==========================================
-   MODAL
-   ========================================== */
+// ==========================================
+// 8. FUNÇÃO PARA FECHAR MODAL
+// ==========================================
 
-const modal =
-    document.getElementById("modal");
+function fecharJanelaModal() {
 
-const abrirModal =
-    document.getElementById("abrirModal");
+    if (!modal) {
 
-const abrirModalDemo =
-    document.getElementById("abrirModalDemo");
+        return;
 
-const fecharModal =
-    document.getElementById("fecharModal");
+    }
 
 
-function mostrarModal() {
+    modal.classList.remove(
+        "aberto"
+    );
 
-    if (modal) {
 
-        modal.classList.add("ativo");
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    // Devolve o foco para
+    // o botão que abriu o modal
+
+    if (ultimoElementoFocado) {
+
+        ultimoElementoFocado.focus();
 
     }
 
 }
 
 
-function esconderModal() {
 
-    if (modal) {
-
-        modal.classList.remove("ativo");
-
-    }
-
-}
-
-
-if (abrirModal) {
-
-    abrirModal.addEventListener(
-        "click",
-        mostrarModal
-    );
-
-}
-
-
-if (abrirModalDemo) {
-
-    abrirModalDemo.addEventListener(
-        "click",
-        mostrarModal
-    );
-
-}
-
+// ==========================================
+// 9. BOTÃO FECHAR MODAL
+// ==========================================
 
 if (fecharModal) {
 
     fecharModal.addEventListener(
         "click",
-        esconderModal
+        fecharJanelaModal
     );
 
 }
 
+
+
+// ==========================================
+// 10. FECHAR CLICANDO FORA
+// ==========================================
 
 if (modal) {
 
@@ -109,7 +466,7 @@ if (modal) {
 
             if (evento.target === modal) {
 
-                esconderModal();
+                fecharJanelaModal();
 
             }
 
@@ -118,375 +475,25 @@ if (modal) {
 
 }
 
+
+
+// ==========================================
+// 11. TECLA ESC
+// ==========================================
 
 document.addEventListener(
     "keydown",
     function (evento) {
 
-        if (evento.key === "Escape") {
+        if (
+            evento.key === "Escape" &&
+            modal &&
+            modal.classList.contains("aberto")
+        ) {
 
-            esconderModal();
+            fecharJanelaModal();
 
         }
 
     }
 );
-
-
-
-/* ==========================================
-   TOAST DO INDEX
-   ========================================== */
-
-const toast =
-    document.getElementById("toast");
-
-const mostrarToast =
-    document.getElementById("mostrarToast");
-
-const mostrarToastDemo =
-    document.getElementById("mostrarToastDemo");
-
-
-let temporizadorToast;
-
-
-function exibirToast() {
-
-    if (!toast) {
-
-        return;
-
-    }
-
-
-    clearTimeout(temporizadorToast);
-
-
-    toast.classList.add("ativo");
-
-
-    temporizadorToast =
-        setTimeout(
-            function () {
-
-                toast.classList.remove("ativo");
-
-            },
-            3000
-        );
-
-}
-
-
-if (mostrarToast) {
-
-    mostrarToast.addEventListener(
-        "click",
-        exibirToast
-    );
-
-}
-
-
-if (mostrarToastDemo) {
-
-    mostrarToastDemo.addEventListener(
-        "click",
-        exibirToast
-    );
-
-}
-
-
-
-/* ==========================================
-   FORMULÁRIO DE CADASTRO
-   ========================================== */
-
-const formCadastro =
-    document.getElementById("formCadastro");
-
-const nome =
-    document.getElementById("nome");
-
-const cpf =
-    document.getElementById("cpf");
-
-const email =
-    document.getElementById("email");
-
-const telefone =
-    document.getElementById("telefone");
-
-const cep =
-    document.getElementById("cep");
-
-const interesse =
-    document.getElementById("interesse");
-
-const toastCadastro =
-    document.getElementById("toastCadastro");
-
-
-if (formCadastro) {
-
-    formCadastro.addEventListener(
-        "submit",
-        function (evento) {
-
-            evento.preventDefault();
-
-
-            let formularioValido = true;
-
-
-            /* NOME */
-
-            if (nome.value.trim().length < 3) {
-
-                nome.classList.add("invalido");
-
-                nome.classList.remove("valido");
-
-                document.getElementById(
-                    "erroNome"
-                ).textContent =
-                    "Digite seu nome completo.";
-
-                formularioValido = false;
-
-            } else {
-
-                nome.classList.add("valido");
-
-                nome.classList.remove("invalido");
-
-                document.getElementById(
-                    "erroNome"
-                ).textContent = "";
-
-            }
-
-
-
-            /* CPF */
-
-            if (cpf.value.trim().length < 11) {
-
-                cpf.classList.add("invalido");
-
-                cpf.classList.remove("valido");
-
-                document.getElementById(
-                    "erroCpf"
-                ).textContent =
-                    "Digite um CPF válido.";
-
-                formularioValido = false;
-
-            } else {
-
-                cpf.classList.add("valido");
-
-                cpf.classList.remove("invalido");
-
-                document.getElementById(
-                    "erroCpf"
-                ).textContent = "";
-
-            }
-
-
-
-            /* E-MAIL */
-
-            if (!email.validity.valid) {
-
-                email.classList.add("invalido");
-
-                email.classList.remove("valido");
-
-                document.getElementById(
-                    "erroEmail"
-                ).textContent =
-                    "Digite um e-mail válido.";
-
-                formularioValido = false;
-
-            } else {
-
-                email.classList.add("valido");
-
-                email.classList.remove("invalido");
-
-                document.getElementById(
-                    "erroEmail"
-                ).textContent = "";
-
-            }
-
-
-
-            /* TELEFONE */
-
-            if (telefone.value.trim().length < 10) {
-
-                telefone.classList.add("invalido");
-
-                telefone.classList.remove("valido");
-
-                document.getElementById(
-                    "erroTelefone"
-                ).textContent =
-                    "Digite um telefone válido.";
-
-                formularioValido = false;
-
-            } else {
-
-                telefone.classList.add("valido");
-
-                telefone.classList.remove("invalido");
-
-                document.getElementById(
-                    "erroTelefone"
-                ).textContent = "";
-
-            }
-
-
-
-            /* CEP */
-
-            if (cep.value.trim().length < 8) {
-
-                cep.classList.add("invalido");
-
-                cep.classList.remove("valido");
-
-                document.getElementById(
-                    "erroCep"
-                ).textContent =
-                    "Digite um CEP válido.";
-
-                formularioValido = false;
-
-            } else {
-
-                cep.classList.add("valido");
-
-                cep.classList.remove("invalido");
-
-                document.getElementById(
-                    "erroCep"
-                ).textContent = "";
-
-            }
-
-
-
-            /* INTERESSE */
-
-            if (interesse && interesse.value === "") {
-
-                interesse.classList.add("invalido");
-
-                interesse.classList.remove("valido");
-
-                formularioValido = false;
-
-            } else if (interesse) {
-
-                interesse.classList.add("valido");
-
-                interesse.classList.remove("invalido");
-
-            }
-
-
-
-            /* SUCESSO */
-
-            if (formularioValido) {
-
-                if (toastCadastro) {
-
-                    toastCadastro.classList.add("ativo");
-
-
-                    setTimeout(
-                        function () {
-
-                            toastCadastro
-                                .classList
-                                .remove("ativo");
-
-                        },
-                        3000
-                    );
-
-                }
-
-            }
-
-        }
-    );
-
-}
-
-
-
-/* ==========================================
-   BOTÃO LIMPAR DO FORMULÁRIO
-   ========================================== */
-
-if (formCadastro) {
-
-    formCadastro.addEventListener(
-        "reset",
-        function () {
-
-            setTimeout(
-                function () {
-
-                    const campos =
-                        formCadastro.querySelectorAll(
-                            "input, select, textarea"
-                        );
-
-
-                    campos.forEach(
-                        function (campo) {
-
-                            campo.classList.remove(
-                                "valido",
-                                "invalido"
-                            );
-
-                        }
-                    );
-
-
-                    const mensagens =
-                        formCadastro.querySelectorAll(
-                            ".mensagem-erro"
-                        );
-
-
-                    mensagens.forEach(
-                        function (mensagem) {
-
-                            mensagem.textContent = "";
-
-                        }
-                    );
-
-                },
-                0
-            );
-
-        }
-    );
-
-}

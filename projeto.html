@@ -2,61 +2,338 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <title>Projetos - ONG Esperança</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Conheça os projetos sociais desenvolvidos pela ONG Esperança.">
+
+    <title>Projetos | ONG Esperança</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
 
-    <header>
-        <h1>ONG Esperança</h1>
+    <!-- CABEÇALHO -->
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-            </ul>
-        </nav>
+    <header class="cabecalho">
+
+        <div class="container cabecalho-conteudo">
+
+            <a
+                href="index.html"
+                class="logo">
+
+                ONG Esperança
+
+            </a>
+
+
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="menu-principal">
+
+                ☰
+
+            </button>
+
+
+            <nav
+                id="menu-principal"
+                class="menu"
+                aria-label="Navegação principal">
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">
+                            Início
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="projetos.html"
+                            class="ativo">
+
+                            Projetos
+
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="cadastro.html">
+                            Cadastro
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
     </header>
+
+
+    <!-- CONTEÚDO -->
 
     <main>
 
-        <h2>Projetos da ONG Esperança</h2>
+        <!-- CABEÇALHO DA PÁGINA -->
 
-        <section>
-            <h3>Ações de Solidariedade</h3>
+        <section class="cabecalho-pagina">
 
-            <p>
-                Realizamos campanhas para arrecadação e distribuição
-                de alimentos e produtos essenciais para famílias
-                em situação de vulnerabilidade.
-            </p>
+            <div class="container">
+
+                <span class="subtitulo">
+                    Nossas iniciativas
+                </span>
+
+                <h1>
+                    Projetos
+                </h1>
+
+                <p>
+                    Conheça algumas das ações realizadas
+                    pela ONG Esperança.
+                </p>
+
+            </div>
+
         </section>
 
-        <section>
-            <h3>Voluntariado</h3>
 
-            <p>
-                Pessoas interessadas podem participar de ações
-                voluntárias e contribuir com seu tempo e suas habilidades.
-            </p>
+        <!-- PROJETOS -->
+
+        <section class="secao">
+
+            <div class="container">
+
+                <div class="grid-cards">
+
+                    <!-- PROJETO 1 -->
+
+                    <article class="card projeto-completo">
+
+                        <img
+                            src="img/educacao.jpg"
+                            alt="Crianças participando de atividade educacional">
+
+                        <div class="conteudo-card">
+
+                            <span class="badge">
+                                Educação
+                            </span>
+
+                            <h2>
+                                Educação para Todos
+                            </h2>
+
+                            <p>
+                                O projeto oferece atividades de
+                                reforço escolar, leitura e inclusão
+                                digital para crianças e adolescentes.
+                            </p>
+
+                            <button
+                                class="botao botao-modal"
+                                type="button"
+                                data-titulo="Educação para Todos"
+                                data-texto="O projeto Educação para Todos promove reforço escolar, incentivo à leitura e atividades de inclusão digital para crianças e adolescentes da comunidade.">
+
+                                Ver detalhes
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJETO 2 -->
+
+                    <article class="card projeto-completo">
+
+                        <img
+                            src="img/alimento.jpg"
+                            alt="Alimentos arrecadados para famílias">
+
+                        <div class="conteudo-card">
+
+                            <span class="badge">
+                                Solidariedade
+                            </span>
+
+                            <h2>
+                                Alimento Solidário
+                            </h2>
+
+                            <p>
+                                Campanhas de arrecadação de alimentos
+                                destinadas às famílias em situação
+                                de vulnerabilidade social.
+                            </p>
+
+                            <button
+                                class="botao botao-modal"
+                                type="button"
+                                data-titulo="Alimento Solidário"
+                                data-texto="O projeto Alimento Solidário realiza campanhas de arrecadação e distribuição de alimentos para famílias que necessitam de apoio.">
+
+                                Ver detalhes
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJETO 3 -->
+
+                    <article class="card projeto-completo">
+
+                        <img
+                            src="img/voluntarios.jpg"
+                            alt="Grupo de voluntários reunidos">
+
+                        <div class="conteudo-card">
+
+                            <span class="badge">
+                                Voluntariado
+                            </span>
+
+                            <h2>
+                                Rede de Voluntários
+                            </h2>
+
+                            <p>
+                                Programa destinado às pessoas
+                                interessadas em colaborar diretamente
+                                nas atividades da organização.
+                            </p>
+
+                            <button
+                                class="botao botao-modal"
+                                type="button"
+                                data-titulo="Rede de Voluntários"
+                                data-texto="A Rede de Voluntários conecta pessoas interessadas em contribuir com seu tempo e conhecimento nas diferentes ações da ONG Esperança.">
+
+                                Ver detalhes
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
         </section>
 
-        <section>
-            <h3>Campanhas de Doação</h3>
 
-            <p>
-                Nossa organização promove campanhas de arrecadação
-                para apoiar diferentes projetos sociais.
-            </p>
+        <!-- CHAMADA -->
+
+        <section class="chamada">
+
+            <div class="container">
+
+                <h2>
+                    Quer participar dos nossos projetos?
+                </h2>
+
+                <p>
+                    Faça seu cadastro e torne-se
+                    um voluntário.
+                </p>
+
+                <a
+                    href="cadastro.html"
+                    class="botao botao-claro">
+
+                    Quero participar
+
+                </a>
+
+            </div>
+
         </section>
 
     </main>
 
-    <footer>
-        <p>&copy; 2026 ONG Esperança</p>
+
+    <!-- MODAL -->
+
+    <div
+        class="modal"
+        id="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-titulo"
+        aria-hidden="true">
+
+        <div class="modal-conteudo">
+
+            <button
+                type="button"
+                class="fechar-modal"
+                id="fechar-modal"
+                aria-label="Fechar janela">
+
+                &times;
+
+            </button>
+
+            <h2 id="modal-titulo">
+                Projeto
+            </h2>
+
+            <p id="modal-texto">
+                Informações do projeto.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- RODAPÉ -->
+
+    <footer class="rodape">
+
+        <div class="container">
+
+            <h2>
+                ONG Esperança
+            </h2>
+
+            <p>
+                Solidariedade que transforma.
+            </p>
+
+            <p class="copyright">
+                &copy; 2026 ONG Esperança.
+                Todos os direitos reservados.
+            </p>
+
+        </div>
+
     </footer>
+
+
+    <script src="js/script.js"></script>
 
 </body>
 
